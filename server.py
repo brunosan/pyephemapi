@@ -63,4 +63,5 @@ def main():
     return jsonify(coords=[float(tle_rec.sublong), float(tle_rec.sublat)])
 
 if __name__ == "__main__":
+    app.debug = True
     app.run()
