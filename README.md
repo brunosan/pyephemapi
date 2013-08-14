@@ -2,7 +2,7 @@
 
 An incredibly tiny project to make a REST API for
 [PyEphem](http://rhodesmill.org/pyephem/) so that you can do
-TLE to satellite position but not write your own server or think
+TLE to satellite position (and optionally specify the time) but not write your own server or think
 too much.
 
 ### example
@@ -16,7 +16,8 @@ var tle =     [
 
 d3.json('http://ephemapi.herokuapp.com/?name=' + encodeURIComponent(tle[0]) +
     '&line1=' + encodeURIComponent(tle[1]) +
-    '&line2=' + encodeURIComponent(tle[2])).on('load', function(data) {
+    '&line2=' + encodeURIComponent(tle[2]) +
+    '&rtime=' + encodeURIComponent(rtime)).on('load', function(data) {
         cb(data);
     }).get();
     
