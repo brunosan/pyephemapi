@@ -59,7 +59,7 @@ def main():
     line2 = str(request.args.get('line2', ''))
     rtime = str(request.args.get('rtime', datetime.datetime.now()))
     tle_rec = ephem.readtle(name, line1, line2)
-    tle_rec.compute(rtime)
+    tle_rec.compute(datetime.datetime.strptime(rtime, "%a, %d %b %Y %H:%M:%S %Z"))
     return jsonify(coords=[float(tle_rec.sublong), float(tle_rec.sublat)])
 
 if __name__ == "__main__":
